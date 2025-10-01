@@ -315,6 +315,7 @@ class PaymentConfirmResponse(BaseModel):
     status: PaymentStatus
     description: Optional[str] = None
     person_id: UUID
+    event_id: UUID
 
 
 class AttendanceResponse(BaseModel):
