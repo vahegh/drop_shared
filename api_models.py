@@ -222,7 +222,7 @@ class PaymentResponse(BaseModel):
 
 
 # payment providers
-class InitPaymentRequest(BaseModel):
+class VposInitPaymentRequest(BaseModel):
     ClientID: str
     Username: str
     Password: str
@@ -313,3 +313,11 @@ class PaymentConfirmResponse(BaseModel):
     status: PaymentStatus
     description: Optional[str] = None
     person_id: UUID
+
+
+class AttendanceResponse(BaseModel):
+    id: UUID
+    event_id: UUID
+    person_id: UUID
+    event_ticket_id: Optional[UUID] = None
+    date_modified: Optional[datetime] = None
