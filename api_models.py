@@ -257,19 +257,19 @@ class VPOSPaymentDetailsResponse(BaseModel):
     ClientName: Optional[str] = None
     ClientEmail: Optional[str] = None
     Currency: Optional[str] = None
-    DateTime: Optional[str] = None  # String, as per sample (not parsed to datetime)
+    DateTime: Optional[str] = None
     DepositedAmount: Optional[float] = None
     Description: Optional[str] = None
     MerchantId: Optional[str] = None
     Opaque: Optional[str] = None
     OrderID: Optional[int] = None
-    PaymentState: Optional[str] = None  # e.g., payment_deposited
+    PaymentState: Optional[str] = None
     PaymentType: Optional[int] = None
-    ResponseCode: Optional[str] = None  # e.g., 00 for success
+    ResponseCode: Optional[str] = None
     rrn: Optional[str] = None
     TerminalId: Optional[str] = None
     TrxnDescription: Optional[str] = None
-    OrderStatus: Optional[int] = None  # e.g., 2 for payment_deposited
+    OrderStatus: Optional[int] = None
     RefundedAmount: Optional[float] = None
     CardHolderID: Optional[str] = None
     MDOrderID: Optional[str] = None
@@ -324,3 +324,37 @@ class AttendanceResponse(BaseModel):
     person_id: UUID
     event_ticket_id: Optional[UUID] = None
     date_modified: Optional[datetime] = None
+
+
+class ECRMPrintRequest(BaseModel):
+    crn: int
+    cardAmount: int
+    cashAmount: int = 0
+    partialAmount: int = 0
+    prePaymentAmount: int = 0
+    cashierId: int = 1
+    mode: int = 3
+
+
+class ECRMCheckConnRequest(BaseModel):
+    crn: int
+
+
+class ECRMResult(BaseModel):
+    receiptId: str
+    crn: str
+    sn: str
+    tin: str
+    taxpayer: str
+    address: str
+    time: int
+    fiscal: str
+    total: int
+    change: int
+    qr: str
+
+
+class ECRMResponse(BaseModel):
+    code: int
+    message: str
+    result: ECRMResult | str
