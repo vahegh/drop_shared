@@ -82,31 +82,31 @@ class MemberCardResponse(BaseModel):
 class EventCreate(BaseModel):
     name: str
     starts_at: datetime
-    ends_at: Optional[datetime] = None
-    early_bird_date: Optional[datetime] = None
+    ends_at: datetime
     venue_id: UUID
-    image_url: Optional[str] = None
-    description: Optional[str] = None
+    image_url: str
+    description: str
+    early_bird_date: Optional[datetime] = None
     early_bird_price: Optional[int] = None
-    general_admission_price: Optional[int] = None
-    member_ticket_price: Optional[int] = None
-    max_capacity: Optional[int] = None
-    shared: Optional[bool] = False
+    general_admission_price: int
+    member_ticket_price: int
+    max_capacity: int
+    shared: bool
 
 
 class EventResponse(BaseModel):
     id: UUID
     name: str
     starts_at: datetime
-    ends_at: Optional[datetime]
-    early_bird_date: Optional[datetime] = None
+    ends_at: datetime
     venue_id: UUID
-    image_url: Optional[str]
-    description: Optional[str]
+    image_url: str
+    description: str
+    early_bird_date: Optional[datetime] = None
     early_bird_price: Optional[int] = None
-    general_admission_price: Optional[int] = None
-    member_ticket_price: Optional[int]
-    max_capacity: Optional[int]
+    general_admission_price: int
+    member_ticket_price: int
+    max_capacity: int
     shared: bool
 
     class Config:
@@ -117,15 +117,15 @@ class EventUpdate(BaseModel):
     name: Optional[str] = None
     starts_at: Optional[datetime] = None
     ends_at: Optional[datetime] = None
-    early_bird_date: Optional[datetime] = None
     venue_id: Optional[UUID] = None
     image_url: Optional[str] = None
     description: Optional[str] = None
+    early_bird_date: Optional[datetime] = None
     early_bird_price: Optional[int] = None
     general_admission_price: Optional[int] = None
     member_ticket_price: Optional[int] = None
     max_capacity: Optional[int] = None
-    shared: Optional[bool] = False
+    shared: Optional[bool] = None
 
 
 class EventTicketCreate(BaseModel):
