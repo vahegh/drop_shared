@@ -326,6 +326,16 @@ class AttendanceResponse(BaseModel):
     date_modified: Optional[datetime] = None
 
 
+class ECRMItem(BaseModel):
+    quantity: int
+    price: int
+    adgCode: Optional[str] = None
+    dep: int = 1
+    goodCode: str = "0001"
+    goodName: str = "Մուտքավճար"
+    unit: str = "հատ"
+
+
 class ECRMPrintRequest(BaseModel):
     crn: int
     cardAmount: int
@@ -333,7 +343,8 @@ class ECRMPrintRequest(BaseModel):
     partialAmount: int = 0
     prePaymentAmount: int = 0
     cashierId: int = 1
-    mode: int = 3
+    mode: int = 2
+    items: list[ECRMItem]
 
 
 class ECRMCheckConnRequest(BaseModel):
@@ -357,4 +368,5 @@ class ECRMResult(BaseModel):
 class ECRMResponse(BaseModel):
     code: int
     message: str
-    result: ECRMResult | str
+    errorMessage: Optional[str] = None
+    result: Optional[ECRMResult | str] = None
