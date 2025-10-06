@@ -310,6 +310,8 @@ class PaymentConfirmRequest(BaseModel):
 
 class PaymentConfirmResponse(BaseModel):
     order_id: int
+    person_id: UUID
+    event_id: UUID
     provider: PaymentProvider
     payment_id: Optional[UUID] = None
     status: PaymentStatus
