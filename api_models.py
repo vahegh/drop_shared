@@ -372,3 +372,10 @@ class ECRMResponse(BaseModel):
     message: str
     errorMessage: Optional[str] = None
     result: Optional[ECRMResult | str] = None
+
+
+class TelegramMessage(BaseModel):
+    chat_id: int
+    text: str
+    parse_mode: str = 'HTML'
+    reply_markup: Optional[dict] = None
