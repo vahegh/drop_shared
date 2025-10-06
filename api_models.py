@@ -316,6 +316,8 @@ class PaymentConfirmResponse(BaseModel):
     description: Optional[str] = None
     person_id: UUID
     event_id: UUID
+    amount: int
+    num_tickets: int
 
 
 class AttendanceResponse(BaseModel):
