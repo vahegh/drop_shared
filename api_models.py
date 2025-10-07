@@ -389,3 +389,4 @@ class VerifyPersonRequest(BaseModel):
 class ValidateTokenResponse(BaseModel):
     person: PersonResponse
     event: EventResponse
+    has_ticket: bool
