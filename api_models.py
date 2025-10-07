@@ -379,3 +379,13 @@ class TelegramMessage(BaseModel):
     text: str
     parse_mode: str = 'HTML'
     reply_markup: Optional[dict] = None
+
+
+class VerifyPersonRequest(BaseModel):
+    email: EmailStr
+    event_id: UUID
+
+
+class ValidateTokenResponse(BaseModel):
+    person: PersonResponse
+    event: EventResponse
