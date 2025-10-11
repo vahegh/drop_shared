@@ -217,7 +217,7 @@ class PaymentResponse(BaseModel):
     event_id: UUID
     amount: float
     provider: PaymentProvider
-    upstream_payment_id: Optional[str] = None
+    upstream_payment_id: Optional[UUID] = None
     status: PaymentStatus
     created_at: datetime
     updated_at: Optional[datetime] = None
