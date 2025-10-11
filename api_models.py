@@ -108,6 +108,7 @@ class EventResponse(BaseModel):
     member_ticket_price: int
     max_capacity: int
     shared: bool
+    created_at: datetime
 
     class Config:
         from_attributes = True
