@@ -140,11 +140,11 @@ class EventTicketResponse(BaseModel):
     person_id: UUID
     event_id: UUID
     payment_order_id: Optional[int] = None
-    is_used: bool
     apple_pass_url: Optional[str] = None
     google_pass_url: Optional[str] = None
-    last_updated: datetime
-    is_sent: bool
+    created_at: datetime
+    updated_at: Optional[datetime]
+    attended_at: Optional[datetime]
 
     class Config:
         from_attributes = True
@@ -166,41 +166,6 @@ class LogRequest(BaseModel):
 class SendLink(BaseModel):
     email: str
     event_id: UUID
-
-
-# class PaymentCreate(BaseModel):
-#     person_id: UUID
-#     event_id: UUID
-#     request_id: str
-#     pay_url: str
-
-#     class Config:
-#         from_attributes = True
-
-
-# class PaymentResponse(BaseModel):
-#     id: UUID
-#     person_id: UUID
-#     event_id: UUID
-#     request_id: str
-#     pay_url: str
-#     status: PaymentStatus
-#     created_at: datetime
-#     updated_at: datetime
-
-#     class Config:
-#         from_attributes = True
-
-
-# class PaylinkPaymentRequest(BaseModel):
-#     requestType: str
-#     amount: float
-#     isFlexible: bool
-#     allowAnonymous: bool
-#     isActive: bool
-#     backUrl: Optional[str] = f"{APP_BASE_URL}/success"
-#     language: Optional[str] = 'en'
-#     maxCount: Optional[int] = 1
 
 
 class PaymentCreate(BaseModel):
