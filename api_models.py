@@ -73,7 +73,8 @@ class MemberCardResponse(BaseModel):
     person_id: UUID
     apple_pass_url: str
     google_pass_url: str
-    last_updated: datetime
+    created_at: datetime
+    updated_at: Optional[datetime]
 
     class Config:
         from_attributes = True
