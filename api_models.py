@@ -289,14 +289,6 @@ class PaymentConfirmResponse(BaseModel):
     num_tickets: int
 
 
-class AttendanceResponse(BaseModel):
-    id: UUID
-    event_id: UUID
-    person_id: UUID
-    event_ticket_id: Optional[UUID] = None
-    date_modified: Optional[datetime] = None
-
-
 class ECRMItem(BaseModel):
     quantity: int
     price: int
