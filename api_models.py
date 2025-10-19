@@ -7,6 +7,7 @@ from enums import PersonStatus, PaymentStatus, PaymentProvider
 
 class VenueCreate(BaseModel):
     name: str
+    short_name: str
     address: Optional[str] = None
     latitude: float
     longitude: float
@@ -16,6 +17,7 @@ class VenueCreate(BaseModel):
 
 class VenueUpdate(BaseModel):
     name: Optional[str] = None
+    short_name: Optional[str] = None
     address: Optional[str] = None
     latitude: Optional[float] = None
     longitude: Optional[float] = None
@@ -26,6 +28,7 @@ class VenueUpdate(BaseModel):
 class VenueResponse(BaseModel):
     id: UUID
     name: str
+    short_name: str
     address: Optional[str]
     latitude: float
     longitude: float
