@@ -347,6 +347,10 @@ class VerifyPersonRequest(BaseModel):
     event_id: UUID
 
 
+class ValidateTokenRequest(BaseModel):
+    token: str
+
+
 class ValidateTokenResponse(BaseModel):
     person: PersonResponse
     event: EventResponse
