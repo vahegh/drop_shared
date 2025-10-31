@@ -355,3 +355,15 @@ class ValidateTokenResponse(BaseModel):
     person: PersonResponse
     event: EventResponse
     has_ticket: bool
+
+
+class PersonResponseFull(BaseModel):
+    id: UUID
+    name: str
+    email: EmailStr
+    instagram_handle: Optional[str] = None
+    telegram_handle: Optional[str] = None
+    status: PersonStatus
+    member_pass: MemberCardResponse | None = None
+    event_tickets: list[EventTicketResponse] = []
+    events_attended: int = 0
