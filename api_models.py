@@ -44,6 +44,7 @@ class PersonCreate(BaseModel):
     email: EmailStr
     instagram_handle: Optional[str] = None
     telegram_handle: Optional[str] = None
+    avatar_url: Optional[str] = None
 
 
 class PersonUpdate(BaseModel):
@@ -52,6 +53,7 @@ class PersonUpdate(BaseModel):
     instagram_handle: Optional[str] = None
     telegram_handle: Optional[str] = None
     status: Optional[PersonStatus] = None
+    avatar_url: Optional[str] = None
 
 
 class PersonResponse(BaseModel):
@@ -61,6 +63,7 @@ class PersonResponse(BaseModel):
     instagram_handle: Optional[str]
     telegram_handle: Optional[str]
     status: PersonStatus
+    avatar_url: Optional[str]
 
     class Config:
         from_attributes = True
@@ -364,6 +367,7 @@ class PersonResponseFull(BaseModel):
     instagram_handle: Optional[str] = None
     telegram_handle: Optional[str] = None
     status: PersonStatus
+    avatar_url: Optional[str] = None
     member_pass: MemberCardResponse | None = None
     event_tickets: list[EventTicketResponse] = []
     events_attended: int = 0
